@@ -64,10 +64,24 @@ Next, we pass the output of Gaussian Blurring to the Canny Edge Detection method
 ***Note:*** After step2, we have a **Sobel** edge detection. Therefore, Canny edge detection includes Sobel steps, and 3 more: non-maximum suppression to get rid of spurious responses, double threshold to detect potential edges, and hysteresis to suppress all other edges that are between the thresholds and are not connected to strong edges.
 
 
-
-Canny edge detection | Sobel x-direction gradients | Sobel y-direction gradient | Final Sobel
-:-------------:|:----------:|:--------------------:|:--------------------------:|:----------:
-![Canny](test_images_output/out_canny_solidYellowCurve2.jpg)| ![Sobelx](test_images_output/out_sobelx_solidYellowCurve2.jpg) | ![Sobely](test_images_output/out_sobely_solidYellowCurve2.jpg) | ![Final_Sobel](test_images_output/out_final_sobel_solidYellowCurve2.jpg)
+<table>
+    <tr>
+        <td>Canny edge detection</td>
+        <td>Sobel x-direction gradients</td>
+        <td>Sobel y-direction gradient</td>
+        <td>Final Sobel</td>
+    </tr>
+<tr>
+<td> <img src="test_images_output/out_canny_solidYellowCurve2.jpg" alt="canny" 
+    width="540" align="center"/> </td>
+<td> <img src="test_images_output/out_sobelx_solidYellowCurve2.jpg" alt="sobelx" 
+    width="540" align="center"/> </td>
+<td> <img src="test_images_output/out_sobely_solidYellowCurve2.jpg" alt="sobely" 
+    width="540" align="center"/> </td>
+<td> <img src="test_images_output/out_final_sobel_solidYellowCurve2.jpg" alt="sobel" 
+    width="540" align="center"/> </td>
+</tr>
+</table>
 
 
 We can see that the Canny method improves edge detection over the Sobel method, by making the edges more explicit and visible. This is achieved by the Canny steps 3 to 5 above. Removing neighboring edges that were found on the gradients but not higher in intensity than the edge pixels identified in the edge traversal direction; and applying a double threshold designed to remove the low edge pixels, and keep weak pixels `connected` to the high pixels (an indicator of a connected edge pixels that could have been weakly captured by the transformations but still part of the same object). 
